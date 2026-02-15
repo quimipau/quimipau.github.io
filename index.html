@@ -3,191 +3,225 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Química PAU — En construcción</title>
+<title>Química PAU</title>
 
 <style>
-body {
+
+/* RESET */
+* {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(135deg, #e8f4f8, #ffffff);
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: white;
+  height: 100vh;
+  overflow-x: hidden;
+
+  /* gradient depth */
+  background:
+    radial-gradient(circle at 20% 20%, #1fb6a6 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, #0d8f7f 0%, transparent 40%),
+    linear-gradient(135deg, #0f766e, #0ea5a4);
+}
+
+/* subtle scientific texture */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/hexellence.png");
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(0,0,0,0.15);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  font-size: 0.95rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  opacity: 0.9;
+  transition: 0.2s;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+}
+
+/* HERO */
+.hero {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  color: #0a3d4d;
-}
-
-/* moléculas de fondo */
-.molecule {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border: 2px dashed rgba(0,150,170,0.15);
-  border-radius: 50%;
-  animation: rotate 30s linear infinite;
-}
-
-.molecule::before,
-.molecule::after {
-  content: "";
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  background: rgba(0,150,170,0.25);
-  border-radius: 50%;
-}
-
-.molecule::before { top: -7px; left: 50%; transform: translateX(-50%); }
-.molecule::after { bottom: -7px; left: 50%; transform: translateX(-50%); }
-
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* contenedor central */
-.container {
   text-align: center;
-  max-width: 420px;
-  padding: 40px 30px;
-  background: rgba(255,255,255,0.75);
+  padding: 20px;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  margin-bottom: 20px;
   backdrop-filter: blur(6px);
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  position: relative;
-  z-index: 2;
 }
 
-h1 {
-  margin-bottom: 10px;
-  font-size: 2em;
+.hero-title {
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: -1px;
 }
 
-p {
-  color: #3c6b75;
-  line-height: 1.5;
+.hero-title span {
+  background: linear-gradient(90deg, #6ee7b7, #34d399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* matraz */
-.flask {
-  width: 70px;
-  height: 90px;
-  border: 3px solid #0a7f8c;
-  border-top: none;
-  border-radius: 0 0 20px 20px;
-  margin: 25px auto;
-  position: relative;
-  overflow: hidden;
+.hero p {
+  max-width: 560px;
+  margin: 22px auto 32px;
+  line-height: 1.7;
+  opacity: 0.9;
 }
 
-.flask::before {
-  content: "";
+/* BUTTONS */
+.buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: white;
+  color: #0f766e;
+  border-radius: 14px;
+  padding: 14px 26px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  transition: 0.25s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+  border-radius: 14px;
+  padding: 14px 26px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* SCROLL INDICATOR */
+.scroll {
   position: absolute;
-  width: 22px;
-  height: 40px;
-  border: 3px solid #0a7f8c;
-  border-bottom: none;
-  top: -40px;
+  bottom: 28px;
   left: 50%;
   transform: translateX(-50%);
-  border-radius: 6px 6px 0 0;
+  opacity: 0.8;
+  animation: float 2s ease-in-out infinite;
 }
 
-.liquid {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 45%;
-  background: linear-gradient(#2ec4b6, #0aa);
+@keyframes float {
+  0%,100% { transform: translate(-50%,0); }
+  50% { transform: translate(-50%,8px); }
 }
 
-/* burbujas */
-.bubble {
-  position: absolute;
-  bottom: 0;
-  background: rgba(255,255,255,0.8);
-  border-radius: 50%;
-  animation: rise 4s infinite ease-in;
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.6rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
 }
 
-.bubble:nth-child(1) { left: 20%; width: 8px; height: 8px; animation-delay: 0s; }
-.bubble:nth-child(2) { left: 50%; width: 10px; height: 10px; animation-delay: 1s; }
-.bubble:nth-child(3) { left: 70%; width: 6px; height: 6px; animation-delay: 2s; }
-
-@keyframes rise {
-  0% { transform: translateY(0); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateY(-60px); opacity: 0; }
-}
-
-/* barra progreso */
-.progress-container {
-  margin-top: 25px;
-  text-align: left;
-}
-
-.progress-label {
-  font-size: 0.9em;
-  margin-bottom: 6px;
-}
-
-.progress-bar {
-  width: 100%;
-  height: 8px;
-  background: #d7eef2;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.progress {
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(90deg, #2ec4b6, #0a7f8c);
-  animation: loading 3s infinite alternate;
-}
-
-@keyframes loading {
-  from { width: 30%; }
-  to { width: 85%; }
-}
-
-.footer {
-  margin-top: 25px;
-  font-size: 0.8em;
-  color: #6a9aa4;
-}
 </style>
 </head>
 <body>
 
-<div class="molecule"></div>
-
-<div class="container">
-  <h1>🧪 Web en construcción</h1>
-  <p>
-    Estamos preparando material para ayudarte a dominar la Química de la PAU.
-    Muy pronto tendrás acceso a exámenes, ejercicios por temas y recursos exclusivos.
-  </p>
-
-  <div class="flask">
-    <div class="liquid"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
+<nav class="navbar">
+  <div class="logo">
+    <div class="logo-icon">🧪</div>
+    Química PAU
   </div>
+  <div class="nav-links">
+    <a href="#">Exámenes oficiales</a>
+    <a href="#">Exámenes propios</a>
+    <a href="#">Practicar por temas</a>
+  </div>
+</nav>
 
-  <div class="progress-container">
-    <div class="progress-label">Reacción en progreso…</div>
-    <div class="progress-bar">
-      <div class="progress"></div>
+<section class="hero">
+  <div>
+    <div class="badge">Preparación PAU 2025</div>
+    <h1 class="hero-title">
+      Química <span>PAU</span>
+    </h1>
+    <p>
+      Tu mejor aliado para preparar la selectividad. Accede a exámenes oficiales,
+      simulacros y ejercicios organizados por temas.
+    </p>
+
+    <div class="buttons">
+      <a href="#" class="btn-primary">Acceder a exámenes →</a>
+      <a href="#" class="btn-secondary">Practicar por temas</a>
     </div>
   </div>
 
-  <div class="footer">
-    Proyecto educativo de Química PAU · 2026
-  </div>
-</div>
+  <div class="scroll">↓</div>
+</section>
 
 </body>
 </html>
