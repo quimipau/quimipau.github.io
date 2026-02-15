@@ -3,188 +3,198 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Química PAU</title>
+<title>Química PAU — En construcción</title>
 
 <style>
 
 /* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
-body {
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: white;
-  height: 100vh;
-  overflow-x: hidden;
+body{
+  font-family: Inter, system-ui, sans-serif;
+  color:white;
+  height:100vh;
+  overflow:hidden;
 
-  /* gradient depth */
   background:
     radial-gradient(circle at 20% 20%, #1fb6a6 0%, transparent 40%),
     radial-gradient(circle at 80% 80%, #0d8f7f 0%, transparent 40%),
     linear-gradient(135deg, #0f766e, #0ea5a4);
 }
 
-/* subtle scientific texture */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: url("https://www.transparenttextures.com/patterns/hexellence.png");
-  opacity: 0.05;
-  pointer-events: none;
+/* textura científica sutil */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:url("https://www.transparenttextures.com/patterns/hexellence.png");
+  opacity:0.05;
+  pointer-events:none;
 }
 
 /* NAVBAR */
-.navbar {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  padding: 18px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  background: rgba(0,0,0,0.15);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:18px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(0,0,0,0.15);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 600;
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:600;
 }
 
-.logo-icon {
-  width: 32px;
-  height: 32px;
-  background: rgba(255,255,255,0.15);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.nav-links {
-  display: flex;
-  gap: 28px;
-  font-size: 0.95rem;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  opacity: 0.9;
-  transition: 0.2s;
-}
-
-.nav-links a:hover {
-  opacity: 1;
+.logo-icon{
+  width:32px;
+  height:32px;
+  background:rgba(255,255,255,0.15);
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 /* HERO */
-.hero {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
+.hero{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
 }
 
-.badge {
-  display: inline-block;
-  background: rgba(255,255,255,0.15);
-  padding: 8px 16px;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  margin-bottom: 20px;
-  backdrop-filter: blur(6px);
+.badge{
+  display:inline-block;
+  background:rgba(255,255,255,0.15);
+  padding:8px 16px;
+  border-radius:999px;
+  font-size:.8rem;
+  margin-bottom:22px;
+  backdrop-filter:blur(6px);
 }
 
-.hero-title {
-  font-size: 4rem;
-  font-weight: 800;
-  letter-spacing: -1px;
+.hero-title{
+  font-size:3.5rem;
+  font-weight:800;
 }
 
-.hero-title span {
-  background: linear-gradient(90deg, #6ee7b7, #34d399);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.hero-title span{
+  background:linear-gradient(90deg,#6ee7b7,#34d399);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-.hero p {
-  max-width: 560px;
-  margin: 22px auto 32px;
-  line-height: 1.7;
-  opacity: 0.9;
+.hero p{
+  max-width:520px;
+  margin:20px auto 28px;
+  line-height:1.7;
+  opacity:.9;
 }
 
-/* BUTTONS */
-.buttons {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
+/* MATRAZ */
+.flask{
+  width:70px;
+  height:90px;
+  border:3px solid rgba(255,255,255,0.85);
+  border-top:none;
+  border-radius:0 0 20px 20px;
+  margin:28px auto;
+  position:relative;
+  overflow:hidden;
 }
 
-.btn-primary {
-  background: white;
-  color: #0f766e;
-  border-radius: 14px;
-  padding: 14px 26px;
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  transition: 0.25s ease;
+.flask::before{
+  content:"";
+  position:absolute;
+  width:22px;
+  height:40px;
+  border:3px solid rgba(255,255,255,0.85);
+  border-bottom:none;
+  top:-40px;
+  left:50%;
+  transform:translateX(-50%);
+  border-radius:6px 6px 0 0;
 }
 
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+.liquid{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:45%;
+  background:linear-gradient(#2ec4b6,#0aa);
 }
 
-.btn-secondary {
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255,255,255,0.25);
-  color: white;
-  border-radius: 14px;
-  padding: 14px 26px;
-  text-decoration: none;
-  font-weight: 500;
+/* burbujas */
+.bubble{
+  position:absolute;
+  bottom:0;
+  background:rgba(255,255,255,0.85);
+  border-radius:50%;
+  animation:rise 4s infinite ease-in;
 }
 
-/* SCROLL INDICATOR */
-.scroll {
-  position: absolute;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0.8;
-  animation: float 2s ease-in-out infinite;
+.bubble:nth-child(1){left:20%;width:8px;height:8px}
+.bubble:nth-child(2){left:50%;width:10px;height:10px;animation-delay:1s}
+.bubble:nth-child(3){left:70%;width:6px;height:6px;animation-delay:2s}
+
+@keyframes rise{
+  0%{transform:translateY(0);opacity:0}
+  50%{opacity:1}
+  100%{transform:translateY(-60px);opacity:0}
 }
 
-@keyframes float {
-  0%,100% { transform: translate(-50%,0); }
-  50% { transform: translate(-50%,8px); }
+/* barra progreso */
+.progress-container{
+  max-width:280px;
+  margin:10px auto 0;
+  text-align:left;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.6rem;
-  }
+.progress-label{
+  font-size:.85rem;
+  margin-bottom:6px;
+  opacity:.9;
+}
 
-  .nav-links {
-    display: none;
-  }
+.progress-bar{
+  width:100%;
+  height:8px;
+  background:rgba(255,255,255,0.2);
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.progress{
+  height:100%;
+  width:60%;
+  background:linear-gradient(90deg,#6ee7b7,#34d399);
+  animation:loading 3s infinite alternate;
+}
+
+@keyframes loading{
+  from{width:30%}
+  to{width:85%}
+}
+
+.footer{
+  margin-top:28px;
+  font-size:.8rem;
+  opacity:.75;
+}
+
+/* responsive */
+@media(max-width:768px){
+  .hero-title{font-size:2.4rem}
 }
 
 </style>
@@ -196,31 +206,39 @@ body::after {
     <div class="logo-icon">🧪</div>
     Química PAU
   </div>
-  <div class="nav-links">
-    <a href="#">Exámenes oficiales</a>
-    <a href="#">Exámenes propios</a>
-    <a href="#">Practicar por temas</a>
-  </div>
 </nav>
 
 <section class="hero">
   <div>
-    <div class="badge">Preparación PAU 2025</div>
+    <div class="badge">Preparando la reacción…</div>
+
     <h1 class="hero-title">
-      Química <span>PAU</span>
+      Web en <span>construcción</span>
     </h1>
+
     <p>
-      Tu mejor aliado para preparar la selectividad. Accede a exámenes oficiales,
-      simulacros y ejercicios organizados por temas.
+      Estamos preparando el material para ayudarte a dominar la Química de la PAU.
+      Muy pronto podrás acceder a exámenes oficiales, simulacros y ejercicios por temas.
     </p>
 
-    <div class="buttons">
-      <a href="#" class="btn-primary">Acceder a exámenes →</a>
-      <a href="#" class="btn-secondary">Practicar por temas</a>
+    <div class="flask">
+      <div class="liquid"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+    </div>
+
+    <div class="progress-container">
+      <div class="progress-label">Reacción en progreso…</div>
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      Proyecto educativo de Química PAU · 2026
     </div>
   </div>
-
-  <div class="scroll">↓</div>
 </section>
 
 </body>
