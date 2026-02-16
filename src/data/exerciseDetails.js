@@ -39,7 +39,11 @@ export const exerciseDetails = {
       <p class="mb-2 text-slate-700">Formamos enlaces dobles S=O para satisfacer la regla del octeto:</p>
 
       <div class="bg-slate-50 border border-slate-200 rounded-lg p-6 my-4 text-center font-mono text-lg">
-        
+        <pre class="inline-block text-left">
+    ··         ··
+   :Ö::S::Ö:
+    ··         ··
+        </pre>
         <p class="mt-3 text-sm text-slate-600 font-sans">O=S=O con dos pares de electrones no enlazantes sobre el S</p>
       </div>
 
