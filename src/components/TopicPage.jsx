@@ -114,8 +114,9 @@ export default function TopicPage() {
             const tp = typeConfig[exercise.type] || typeConfig.Teoría;
 
             return (
-              <div
+              <Link
                 key={exercise.id}
+                to={`/ejercicio/${exercise.id}`}
                 className="group flex items-center gap-4 p-5 rounded-xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:border-teal-200 transition-all duration-200 cursor-pointer"
               >
                 {/* Number */}
@@ -143,7 +144,7 @@ export default function TopicPage() {
 
                 {/* Arrow */}
                 <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-teal-500 shrink-0 transition-colors duration-200" />
-              </div>
+              </Link>
             );
           })}
         </div>

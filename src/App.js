@@ -7,6 +7,7 @@ import { PracticarTemas } from "@/components/PracticarTemas";
 import { BannerDestacado } from "@/components/BannerDestacado";
 import { Footer } from "@/components/Footer";
 import TopicPage from "@/components/TopicPage";
+import ExerciseDetail from "@/components/ExerciseDetail";
 
 const LandingPage = () => {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/tema/:slug" element={<TopicPage />} />
+          <Route path="/ejercicio/:exerciseId" element={<ExerciseDetail />} />
         </Routes>
       </BrowserRouter>
     </div>
